@@ -2,8 +2,7 @@
 const branchData = {
   cb1: {
     name: "Cabang 1 (Cluster Angsana I)",
-    // Masukkan path/URL foto portrait tampak depan kosan Cabang 1 di sini
-    image: "/src/assets/angsana1.jpeg", 
+    image: new URL('/src/assets/angsana1.jpeg', import.meta.url).href,
     mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3964.510871720988!2d107.03136397499229!3d-6.456766493534732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjcnMjQuNCJTIDEwN8KwMDInMDIuMiJF!5e0!3m2!1sid!2sid!4v1793071047206!5m2!1sid!2sid",
     rooms: [
       { type: "Kamar Standard", price: "700.000", tag: "Hemat & Praktis", icon: "🛏️", items: ["Kasur & Lemari Pakaian", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi & Listrik", "Meja Belajar & Kursi"] },
@@ -11,9 +10,8 @@ const branchData = {
     ]
   },
   cb2: {
-    name: "Cabang 2 (Cluster Angsana II)",
-    // Masukkan path/URL foto portrait tampak depan kosan Cabang 2 di sini
-    image: "/src/assets/angsana2.jpeg", 
+    name: "Cabang 1 (Cluster Angsana I)",
+    image: new URL('/src/assets/angsana2.jpeg', import.meta.url).href,
     mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3964.50979968007!2d107.03088047499229!3d-6.456903393534568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjcnMjQuOSJTIDEwN8KwMDInMDAuNCJF!5e0!3m2!1sid!2sid!4v1793071093865!5m2!1sid!2sid",
     rooms: [
       { type: "Kamar Standard", price: "700.000", tag: "Hemat & Praktis", icon: "🛏️", items: ["Kasur & Lemari Pakaian", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi & Listrik", "Meja Belajar & Kursi"] },
@@ -21,9 +19,8 @@ const branchData = {
     ]
   },
   cb3: {
-    name: "Cabang 3 (Cluster Heliconia)",
-    // Masukkan path/URL foto portrait tampak depan kosan Cabang 3 di sini
-    image: "/src/assets/heliconia.jpeg", 
+    name: "Cabang 1 (Cluster Angsana I)",
+    image: new URL('/src/assets/heliconia.jpeg', import.meta.url).href,
     mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3964.517718466643!2d107.0328109749923!3d-6.4558920935356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjcnMjQuNCJTIDEwN8KwMDInMDIuMiJF!5e0!3m2!1sid!2sid!4v1793071137761!5m2!1sid!2sid",
     rooms: [
       { type: "Kamar Standard", price: "700.000", tag: "Hemat & Praktis", icon: "🛏️", items: ["Kasur & Lemari Pakaian", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi & Listrik", "Meja Belajar & Kursi"] },
