@@ -6,30 +6,61 @@ const branchData = {
     mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3964.510871720988!2d107.03136397499229!3d-6.456766493534732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjcnMjQuNCJTIDEwN8KwMDInMDIuMiJF!5e0!3m2!1sid!2sid!4v1793071047206!5m2!1sid!2sid",
     rooms: [
       { type: "Kamar Standard", price: "700.000", tag: "Hemat & Praktis", icon: "🛏️", items: ["Kasur & Lemari Pakaian", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi & Listrik", "Meja Belajar & Kursi"] },
-      { type: "Kamar AC Exclusive", price: "1.000.000", tag: "Fasilitas Lengkap", isPopular: true, icon: "❄️", items: ["AC (Pendingin Ruangan)", "Kasur dan Lemari", "Gratis Wi-Fi, Air & Listrik", "Meja Belajar & Kursi"] }
+      { type: "Kamar AC Exclusive", price: "1.000.000", tag: "Fasilitas Lengkap", isPopular: true, icon: "❄️", items: ["AC (Pendingin Ruangan)", "Kasur dan Lemari", "Kamar Mandi Luar Bersih",  "Gratis Wi-Fi, Air & Listrik", "Meja Belajar & Kursi"] }
     ]
   },
   cb2: {
-    name: "Cabang 1 (Cluster Angsana I)",
+    name: "Cabang 2 (Cluster Angsana II)",
     image: new URL('/src/assets/angsana2.jpeg', import.meta.url).href,
     mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3964.50979968007!2d107.03088047499229!3d-6.456903393534568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjcnMjQuOSJTIDEwN8KwMDInMDAuNCJF!5e0!3m2!1sid!2sid!4v1793071093865!5m2!1sid!2sid",
     rooms: [
       { type: "Kamar Standard", price: "700.000", tag: "Hemat & Praktis", icon: "🛏️", items: ["Kasur & Lemari Pakaian", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi & Listrik", "Meja Belajar & Kursi"] },
-      { type: "Kamar AC Exclusive", price: "1.000.000", tag: "Fasilitas Lengkap", isPopular: true, icon: "❄️", items: ["AC (Pendingin Ruangan)", "Kasur dan Lemari", "Gratis Wi-Fi, Air & Listrik", "Meja Belajar & Kursi"] }
+      { type: "Kamar AC Exclusive", price: "1.000.000", tag: "Fasilitas Lengkap", isPopular: true, icon: "❄️", items: ["AC (Pendingin Ruangan)", "Kasur dan Lemari", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi, Air & Listrik", "Meja Belajar & Kursi"] }
     ]
   },
   cb3: {
-    name: "Cabang 1 (Cluster Angsana I)",
+    name: "Cabang 3 (Cluster Heliconia)",
     image: new URL('/src/assets/heliconia.jpeg', import.meta.url).href,
     mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3964.517718466643!2d107.0328109749923!3d-6.4558920935356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjcnMjQuNCJTIDEwN8KwMDInMDIuMiJF!5e0!3m2!1sid!2sid!4v1793071137761!5m2!1sid!2sid",
     rooms: [
       { type: "Kamar Standard", price: "700.000", tag: "Hemat & Praktis", icon: "🛏️", items: ["Kasur & Lemari Pakaian", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi & Listrik", "Meja Belajar & Kursi"] },
-      { type: "Kamar AC Exclusive", price: "1.000.000", tag: "Fasilitas Lengkap", isPopular: true, icon: "❄️", items: ["AC (Pendingin Ruangan)", "Kasur dan Lemari", "Gratis Wi-Fi, Air & Listrik", "Meja Belajar & Kursi"] }
+      { type: "Kamar AC Exclusive", price: "1.000.000", tag: "Fasilitas Lengkap", isPopular: true, icon: "❄️", items: ["AC (Pendingin Ruangan)", "Kasur dan Lemari", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi, Air & Listrik", "Meja Belajar & Kursi"] }
     ]
   }
 };
 
 let currentPublicBranch = "cb1";
+
+// Handler Modal Pemesanan Kamar
+window.openBookingModal = (roomType, branchName) => {
+  const modal = document.getElementById("modal-booking");
+  if (!modal) return;
+  
+  document.getElementById("booking-room-type").innerText = roomType;
+  document.getElementById("booking-branch-name").innerText = branchName;
+  document.getElementById("input-room-type").value = roomType;
+  document.getElementById("input-branch-name").value = branchName;
+  
+  modal.classList.remove("hidden");
+};
+
+window.closeBookingModal = () => {
+  const modal = document.getElementById("modal-booking");
+  if (modal) modal.classList.add("hidden");
+};
+
+// Form Booking Submit Handler
+document.getElementById("form-booking")?.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const roomType = document.getElementById("input-room-type").value;
+  const branchName = document.getElementById("input-branch-name").value;
+  const name = document.getElementById("booking-name").value;
+
+  alert(`Terima kasih ${name}! Pesan minat sewa untuk ${roomType} di ${branchName} telah terkirim.`);
+  
+  closeBookingModal();
+  e.target.reset();
+});
 
 // Render Public View Rooms & Map
 function renderPublicBranch(branchKey) {
@@ -74,7 +105,7 @@ function renderPublicBranch(branchKey) {
       </div>
     `;
 
-    // 2. HTML Card Pilihan Kamar
+    // 2. HTML Card Pilihan Kamar (Membuka Modal)
     const roomsHTML = data.rooms.map(room => `
       <div class="w-full md:w-[360px] bg-gradient-to-b ${room.isPopular ? 'from-emerald-100/60 via-emerald-50 to-white border-2 border-emerald-500 shadow-xl' : 'from-emerald-50 to-white border-2 border-emerald-200 shadow-md'} rounded-2xl p-6 relative flex flex-col justify-between transform hover:-translate-y-1 transition">
         <div>
@@ -88,7 +119,9 @@ function renderPublicBranch(branchKey) {
             ${room.items.map(item => `<li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> ${item}</li>`).join('')}
           </ul>
         </div>
-        <a href="https://wa.me/6285772857988?text=Halo%20saya%20mau%20tanya%20${encodeURIComponent(room.type)}%20di%20${encodeURIComponent(data.name)}" target="_blank" class="w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-sm transition">Pesan Kamar Ini</a>
+        <button onclick="openBookingModal('${room.type}', '${data.name}')" class="w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-sm transition">
+          Pesan Kamar Ini
+        </button>
       </div>
     `).join('');
 
@@ -97,7 +130,7 @@ function renderPublicBranch(branchKey) {
   }
 }
 
-// Tab Button Click Listeners (Public)
+// Tab Button Click Listeners (Public View)
 document.querySelectorAll(".branch-tab-btn").forEach(btn => {
   btn.addEventListener("click", (e) => {
     document.querySelectorAll(".branch-tab-btn").forEach(b => {
@@ -105,43 +138,16 @@ document.querySelectorAll(".branch-tab-btn").forEach(btn => {
       b.classList.add("text-emerald-800");
     });
 
-    const targetBtn = e.currentTarget;
+    const targetBtn = e.target.closest(".branch-tab-btn");
+    if (!targetBtn) return;
+
     targetBtn.classList.add("bg-emerald-700", "text-white", "shadow-md");
     targetBtn.classList.remove("text-emerald-800");
 
-    renderPublicBranch(targetBtn.dataset.branch);
+    const branchKey = targetBtn.getAttribute("data-branch");
+    renderPublicBranch(branchKey);
   });
 });
 
 // Setup Awal
 renderPublicBranch("cb1");
-
-// Di file src/public.js
-
-// 1. Tambahkan fungsi untuk membuka Modal Formulir Pemesanan
-window.openBookingModal = (roomType, branchName) => {
-  const modal = document.getElementById("modal-booking");
-  if (!modal) return;
-  
-  document.getElementById("booking-room-type").innerText = roomType;
-  document.getElementById("booking-branch-name").innerText = branchName;
-  
-  // Set nilai tersembunyi
-  document.getElementById("input-room-type").value = roomType;
-  document.getElementById("input-branch-name").value = branchName;
-  
-  modal.classList.remove("hidden");
-};
-
-window.closeBookingModal = () => {
-  const modal = document.getElementById("modal-booking");
-  if (modal) modal.classList.add("hidden");
-};
-
-// 2. Pada renderPublicBranch, ubah elemen <a> menjadi <button>:
-// Ganti bagian button di template kamar menjadi:
-/*
-  <button onclick="openBookingModal('${room.type}', '${data.name}')" class="w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-sm transition">
-    Pesan Kamar Ini
-  </button>
-*/
