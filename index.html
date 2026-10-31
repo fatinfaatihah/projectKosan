@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KostPutriWinda - Hunian Nyaman Khusus Putri</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
+
+  <!-- NAVBAR PUBLIK (BERSIH TANPA NOMOR WA) -->
+  <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-emerald-100">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <span class="text-2xl">🌸</span>
+        <span class="font-bold text-xl text-emerald-800 tracking-tight">KostPutriWinda</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PUBLIC VIEW -->
+  <div class="flex-1">
+    
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-emerald-100 via-emerald-50 to-white py-16 md:py-24 border-b border-emerald-200">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <span class="inline-flex items-center gap-2 bg-emerald-200 text-emerald-900 text-xs font-bold px-4 py-1.5 rounded-full shadow-sm">
+          <span>🌸</span> KHUSUS PUTRI
+        </span>
+        <h1 class="text-4xl md:text-6xl font-black text-gray-900 mt-6 mb-4 leading-tight">
+          Hunian Kos Nyaman, <span class="text-emerald-600">Aman</span>, & <span class="text-teal-700">Tenang</span>
+        </h1>
+        <p class="text-gray-700 max-w-2xl mx-auto mb-8 text-base md:text-lg font-medium">
+          Tersedia di 3 cabang strategis dengan fasilitas lengkap dapur, Wi-Fi kencang, lingkungan bersih, serta keamanan 24 jam di KostPutriWinda.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#kamar" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-7 py-3.5 rounded-xl shadow-lg hover:shadow-emerald-200 transition-all transform hover:-translate-y-0.5">
+            ✨ Cek Pilihan Kamar
+          </a>
+          <a href="#lokasi" class="bg-white hover:bg-emerald-50 text-emerald-700 font-bold px-7 py-3.5 rounded-xl border-2 border-emerald-400 shadow-md transition-all flex items-center gap-2">
+            📍 Lihat Lokasi Cabang
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILIHAN CABANG KOS (TABS) -->
+    <section id="kamar" class="max-w-7xl mx-auto px-4 pt-16 pb-6">
+      <div class="text-center mb-8">
+        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider">Pilih Lokasi</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 mb-6">Pilih Cabang Kosan</h2>
+        
+        <div class="inline-flex flex-wrap justify-center gap-2 bg-emerald-100/70 p-2 rounded-2xl shadow-inner border border-emerald-200">
+          <button class="branch-tab-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all bg-emerald-700 text-white shadow-md" data-branch="cb1">
+            📍 Cabang 1 (Angsana I)
+          </button>
+          <button class="branch-tab-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all text-emerald-800 hover:bg-emerald-200/60" data-branch="cb2">
+            📍 Cabang 2 (Angsana II)
+          </button>
+          <button class="branch-tab-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all text-emerald-800 hover:bg-emerald-200/60" data-branch="cb3">
+            📍 Cabang 3 (Heliconia)
+          </button>
+        </div>
+      </div>
+
+      <div id="branch-info-banner" class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-8 text-center max-w-2xl mx-auto">
+        <p id="branch-info-text" class="text-emerald-900 font-semibold text-sm">
+          📍 Menampilkan kamar untuk <strong>Cabang 1 (Angsana I)</strong>
+        </p>
+      </div>
+
+      <!-- Grid Pilihan Kamar (Otomatis Rata Tengah) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" id="kamar-container"></div>
+    </section>
+
+    <!-- Section Fasilitas Bersama -->
+    <section class="bg-emerald-50/60 py-16 border-y border-emerald-100">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-extrabold text-center mb-10 text-gray-900">Fasilitas Bersama Kos</h2>
+        <div class="grid grid-cols-2 md:grid-cols-6 gap-6">
+          <div class="bg-white border border-emerald-200 p-6 rounded-2xl text-center shadow-sm hover:shadow-md transition">
+            <div class="text-4xl mb-3">🍳</div>
+            <h4 class="font-bold text-gray-800 text-base">Dapur Bersama</h4>
+            <p class="text-xs text-gray-600 mt-1">Kompor & gas gratis</p>
+          </div>
+          <div class="bg-white border border-emerald-200 p-6 rounded-2xl text-center shadow-sm hover:shadow-md transition">
+            <div class="text-4xl mb-3">🧺</div>
+            <h4 class="font-bold text-gray-800 text-base">Area Jemuran</h4>
+            <p class="text-xs text-gray-600 mt-1">Atap kanopi aman hujan</p>
+          </div>
+          <div class="bg-white border border-emerald-200 p-6 rounded-2xl text-center shadow-sm hover:shadow-md transition">
+            <div class="text-4xl mb-3">🛵</div>
+            <h4 class="font-bold text-gray-800 text-base">Parkir Motor</h4>
+            <p class="text-xs text-gray-600 mt-1">Aman di dalam pagar</p>
+          </div>
+          <div class="bg-white border border-emerald-200 p-6 rounded-2xl text-center shadow-sm hover:shadow-md transition">
+            <div class="text-4xl mb-3">🛡️</div>
+            <h4 class="font-bold text-gray-800 text-base">Keamanan 24h</h4>
+            <p class="text-xs text-gray-600 mt-1">CCTV & Pagar Terkunci</p>
+          </div>
+          <div class="bg-white border border-emerald-200 p-6 rounded-2xl text-center shadow-sm hover:shadow-md transition">
+            <div class="text-4xl mb-3">🚽</div>
+            <h4 class="font-bold text-gray-800 text-base">Kamar Mandi Luar</h4>
+            <p class="text-xs text-gray-600 mt-1">Selalu bersih & terawat</p>
+          </div>
+          <div class="bg-white border border-emerald-200 p-6 rounded-2xl text-center shadow-sm hover:shadow-md transition">
+            <div class="text-4xl mb-3">👕</div>
+            <h4 class="font-bold text-gray-800 text-base">Mesin Cuci & Kulkas</h4>
+            <p class="text-xs text-gray-600 mt-1">Tinggal di gunakan tanpa memikirkan biaya</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Aturan & Lokasi Kos -->
+    <section id="lokasi" class="max-w-7xl mx-auto px-4 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-2xl border border-emerald-100 shadow-md">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-3xl">📜</span>
+            <h3 class="text-2xl font-extrabold text-gray-900">Tata Tertib Kos</h3>
+          </div>
+          <ul class="space-y-3 text-sm text-gray-700 font-medium">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold mt-0.5">▪</span>
+              <span><strong>Batas Jam Bertamu:</strong> Maksimal pukul 21.00 WIB demi kenyamanan bersama.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold mt-0.5">▪</span>
+              <span><strong>Tamu Pria:</strong> Hanya diperbolehkan di area ruang tamu / teras luar.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold mt-0.5">▪</span>
+              <span><strong>Kebersihan Dapur:</strong> Wajib membersihkan peralatan masak setelah digunakan.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold mt-0.5">▪</span>
+              <span><strong>Listrik & Air:</strong> Harap mematikan AC/Lampu saat meninggalkan kamar.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border border-emerald-100 shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-3xl">📍</span>
+              <h3 class="text-2xl font-extrabold text-gray-900">Lokasi Kosan</h3>
+            </div>
+            <p id="map-branch-title" class="text-sm font-bold text-emerald-800 mb-2">Cabang 1 (Angsana I)</p>
+            <p class="text-xs text-gray-600 mb-4">
+              Lokasi strategis dekat dengan fasilitas publik, kampus, dan pusat perbelanjaan.
+            </p>
+          </div>
+          <div class="w-full h-52 bg-gray-100 rounded-xl overflow-hidden border border-gray-200">
+            <iframe 
+              id="map-iframe"
+              class="w-full h-full border-0" 
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3964.510871720988!2d107.03136397499229!3d-6.456766493534732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjcnMjQuNCJTIDEwN8KwMDInMDIuMiJF!5e0!3m2!1sid!2sid!4v1793062908173!5m2!1sid!2sid" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Banner Informasi Bawah -->
+    <section class="max-w-7xl mx-auto px-4 my-16">
+      <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 rounded-3xl p-8 md:p-12 text-white text-center shadow-xl">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Tertarik Menyewa atau Mau Survey Dulu?</h2>
+        <p class="text-emerald-100 max-w-xl mx-auto text-base">Silakan hubungi kontak pengelola di bagian bawah untuk cek ketersediaan kamar atau janji temu survey lokasi.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- MODAL FORMULIR PESAN KAMAR -->
+<div id="modal-booking" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+  <div class="bg-white rounded-2xl p-6 max-w-md w-full shadow-2xl border border-emerald-100">
+    <div class="text-center mb-4">
+      <span class="text-3xl inline-block mb-1">📝</span>
+      <h3 class="text-xl font-bold text-gray-900">Formulir Minat Sewa</h3>
+      <p class="text-xs text-gray-500 mt-1">
+        Kamar: <strong id="booking-room-type" class="text-emerald-700"></strong><br />
+        <span id="booking-branch-name"></span>
+      </p>
+    </div>
+
+    <form id="form-booking" class="space-y-3">
+      <input type="hidden" id="input-room-type" />
+      <input type="hidden" id="input-branch-name" />
+
+      <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Nama Lengkap</label>
+        <input type="text" id="booking-name" placeholder="Masukkan nama Anda..." required class="w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Nomor WhatsApp Anda</label>
+        <input type="tel" id="booking-phone" placeholder="Contoh: 08123456789" required class="w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Pesan / Pertanyaan Tambahan</label>
+        <textarea id="booking-msg" rows="2" placeholder="Tanya ketersediaan, rencana masuk kos, dll..." class="w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"></textarea>
+      </div>
+
+      <div class="flex gap-2 pt-2">
+        <button type="button" onclick="closeBookingModal()" class="w-1/2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 rounded-xl text-sm transition">
+          Batal
+        </button>
+        <button type="submit" class="w-1/2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2.5 rounded-xl text-sm transition shadow-md">
+          Kirim Pesan
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <!-- FOOTER INFORMASIONAL ALA LANDING PAGE -->
+  <footer class="bg-emerald-900 text-emerald-100 pt-12 pb-6 border-t border-emerald-800">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-emerald-800/60">
+      
+      <!-- Kolom 1: Brand & Deskripsi -->
+      <div>
+        <div class="flex items-center space-x-2 mb-3">
+          <span class="text-2xl">🌸</span>
+          <span class="font-bold text-xl text-white tracking-tight">KostPutriWinda</span>
+        </div>
+        <p class="text-xs text-emerald-200/80 leading-relaxed">
+          Hunian kos khusus putri yang aman, nyaman, dan bersih di lokasi strategis. Dilengkapi berbagai fasilitas lengkap untuk kenyamanan tempat tinggal Anda.
+        </p>
+      </div>
+
+      <!-- Kolom 2: Lokasi Cabang -->
+      <div>
+        <h4 class="font-bold text-white text-sm mb-3">📍 Lokasi Cabang Kos</h4>
+        <ul class="space-y-2 text-xs text-emerald-200/80">
+          <li>• Cabang 1: Cluster Angsana I</li>
+          <li>• Cabang 2: Cluster Angsana II</li>
+          <li>• Cabang 3: Cluster Heliconia</li>
+        </ul>
+      </div>
+
+      <!-- Kolom 3: Pengelola & Kontak -->
+      <div>
+        <h4 class="font-bold text-white text-sm mb-3">👤 Informasi Pengelola</h4>
+        <ul class="space-y-2 text-xs text-emerald-200/80">
+          <li>• Pemilik: <strong>Ibu Sumarni</strong></li>
+          <li>• No. HP / WA: <strong>0857-7285-7988</strong></li>
+          <li>• Jam Layanan Survey: 08.00 - 21.00 WIB</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Copyright & Link Portal Pemilik Tersembunyi -->
+    <div class="max-w-7xl mx-auto px-4 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-emerald-300/70 gap-2">
+      <p>&copy; 2026 KostPutriWinda. All rights reserved.</p>
+      <a href="./admin.html" class="hover:text-white transition opacity-60 hover:opacity-100">Portal Pemilik</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./src/public.js"></script>
+</body>
+</html>
