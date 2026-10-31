@@ -6,7 +6,7 @@ const branchData = {
     mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3964.510871720988!2d107.03136397499229!3d-6.456766493534732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjcnMjQuNCJTIDEwN8KwMDInMDIuMiJF!5e0!3m2!1sid!2sid!4v1793071047206!5m2!1sid!2sid",
     rooms: [
       { type: "Kamar Standard", price: "700.000", tag: "Hemat & Praktis", icon: "🛏️", items: ["Kasur & Lemari Pakaian", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi & Listrik", "Meja Belajar & Kursi"] },
-      { type: "Kamar AC Exclusive", price: "1.000.000", tag: "Fasilitas Lengkap", isPopular: true, icon: "❄️", items: ["AC (Pendingin Ruangan)", "Kasur dan Lemari", "Kamar Mandi Luar Bersih",  "Gratis Wi-Fi, Air & Listrik", "Meja Belajar & Kursi"] }
+      { type: "Kamar AC Exclusive", price: "1.000.000", tag: "Fasilitas Lengkap", isPopular: true, icon: "❄️", items: ["AC (Pendingin Ruangan)", "Kasur dan Lemari Pakaian", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi, Air & Listrik", "Meja Belajar & Kursi"] }
     ]
   },
   cb2: {
@@ -15,7 +15,7 @@ const branchData = {
     mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3964.50979968007!2d107.03088047499229!3d-6.456903393534568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjcnMjQuOSJTIDEwN8KwMDInMDAuNCJF!5e0!3m2!1sid!2sid!4v1793071093865!5m2!1sid!2sid",
     rooms: [
       { type: "Kamar Standard", price: "700.000", tag: "Hemat & Praktis", icon: "🛏️", items: ["Kasur & Lemari Pakaian", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi & Listrik", "Meja Belajar & Kursi"] },
-      { type: "Kamar AC Exclusive", price: "1.000.000", tag: "Fasilitas Lengkap", isPopular: true, icon: "❄️", items: ["AC (Pendingin Ruangan)", "Kasur dan Lemari", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi, Air & Listrik", "Meja Belajar & Kursi"] }
+      { type: "Kamar AC Exclusive", price: "1.000.000", tag: "Fasilitas Lengkap", isPopular: true, icon: "❄️", items: ["AC (Pendingin Ruangan)", "Kasur dan Lemari Pakaian", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi, Air & Listrik", "Meja Belajar & Kursi"] }
     ]
   },
   cb3: {
@@ -24,43 +24,15 @@ const branchData = {
     mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3964.517718466643!2d107.0328109749923!3d-6.4558920935356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjcnMjQuNCJTIDEwN8KwMDInMDIuMiJF!5e0!3m2!1sid!2sid!4v1793071137761!5m2!1sid!2sid",
     rooms: [
       { type: "Kamar Standard", price: "700.000", tag: "Hemat & Praktis", icon: "🛏️", items: ["Kasur & Lemari Pakaian", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi & Listrik", "Meja Belajar & Kursi"] },
-      { type: "Kamar AC Exclusive", price: "1.000.000", tag: "Fasilitas Lengkap", isPopular: true, icon: "❄️", items: ["AC (Pendingin Ruangan)", "Kasur dan Lemari", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi, Air & Listrik", "Meja Belajar & Kursi"] }
+      { type: "Kamar AC Exclusive", price: "1.000.000", tag: "Fasilitas Lengkap", isPopular: true, icon: "❄️", items: ["AC (Pendingin Ruangan)", "Kasur dan Lemari Pakaian", "Kamar Mandi Luar Bersih", "Gratis Wi-Fi, Air & Listrik", "Meja Belajar & Kursi"] }
     ]
   }
 };
 
 let currentPublicBranch = "cb1";
 
-// Handler Modal Pemesanan Kamar
-window.openBookingModal = (roomType, branchName) => {
-  const modal = document.getElementById("modal-booking");
-  if (!modal) return;
-  
-  document.getElementById("booking-room-type").innerText = roomType;
-  document.getElementById("booking-branch-name").innerText = branchName;
-  document.getElementById("input-room-type").value = roomType;
-  document.getElementById("input-branch-name").value = branchName;
-  
-  modal.classList.remove("hidden");
-};
-
-window.closeBookingModal = () => {
-  const modal = document.getElementById("modal-booking");
-  if (modal) modal.classList.add("hidden");
-};
-
-// Form Booking Submit Handler
-document.getElementById("form-booking")?.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const roomType = document.getElementById("input-room-type").value;
-  const branchName = document.getElementById("input-branch-name").value;
-  const name = document.getElementById("booking-name").value;
-
-  alert(`Terima kasih ${name}! Pesan minat sewa untuk ${roomType} di ${branchName} telah terkirim.`);
-  
-  closeBookingModal();
-  e.target.reset();
-});
+// Nomor WhatsApp Ibu Kos / Pengelola
+const ownerPhoneNumber = "6285772857988"; 
 
 // Render Public View Rooms & Map
 function renderPublicBranch(branchKey) {
@@ -105,25 +77,30 @@ function renderPublicBranch(branchKey) {
       </div>
     `;
 
-    // 2. HTML Card Pilihan Kamar (Membuka Modal)
-    const roomsHTML = data.rooms.map(room => `
-      <div class="w-full md:w-[360px] bg-gradient-to-b ${room.isPopular ? 'from-emerald-100/60 via-emerald-50 to-white border-2 border-emerald-500 shadow-xl' : 'from-emerald-50 to-white border-2 border-emerald-200 shadow-md'} rounded-2xl p-6 relative flex flex-col justify-between transform hover:-translate-y-1 transition">
-        <div>
-          ${room.isPopular ? '<span class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">⭐ FAVORIT PENGHUNI</span>' : ''}
-          <div class="h-44 bg-emerald-100/80 rounded-xl flex items-center justify-center text-5xl mb-6 shadow-inner">${room.icon}</div>
-          <span class="bg-emerald-200 text-emerald-900 text-xs font-bold px-2.5 py-1 rounded">${room.tag}</span>
-          <h3 class="text-2xl font-bold text-gray-800 mt-2">${room.type}</h3>
-          <p class="text-emerald-700 font-black text-3xl my-3">Rp ${room.price} <span class="text-sm font-normal text-gray-500">/ bln</span></p>
-          <hr class="my-4 border-emerald-100" />
-          <ul class="text-sm text-gray-700 space-y-2.5 font-medium mb-6">
-            ${room.items.map(item => `<li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> ${item}</li>`).join('')}
-          </ul>
+    // 2. HTML Card Pilihan Kamar (Langsung membuka WhatsApp dengan Pesan Otomatis)
+    const roomsHTML = data.rooms.map(room => {
+      const waMessage = encodeURIComponent(`Halo Ibu Kos, saya berminat dan ingin menanyakan ketersediaan ${room.type} di ${data.name}. Terima kasih!`);
+      const waUrl = `https://wa.me/${ownerPhoneNumber}?text=${waMessage}`;
+
+      return `
+        <div class="w-full md:w-[360px] bg-gradient-to-b ${room.isPopular ? 'from-emerald-100/60 via-emerald-50 to-white border-2 border-emerald-500 shadow-xl' : 'from-emerald-50 to-white border-2 border-emerald-200 shadow-md'} rounded-2xl p-6 relative flex flex-col justify-between transform hover:-translate-y-1 transition">
+          <div>
+            ${room.isPopular ? '<span class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">⭐ FAVORIT PENGHUNI</span>' : ''}
+            <div class="h-44 bg-emerald-100/80 rounded-xl flex items-center justify-center text-5xl mb-6 shadow-inner">${room.icon}</div>
+            <span class="bg-emerald-200 text-emerald-900 text-xs font-bold px-2.5 py-1 rounded">${room.tag}</span>
+            <h3 class="text-2xl font-bold text-gray-800 mt-2">${room.type}</h3>
+            <p class="text-emerald-700 font-black text-3xl my-3">Rp ${room.price} <span class="text-sm font-normal text-gray-500">/ bln</span></p>
+            <hr class="my-4 border-emerald-100" />
+            <ul class="text-sm text-gray-700 space-y-2.5 font-medium mb-6">
+              ${room.items.map(item => `<li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> ${item}</li>`).join('')}
+            </ul>
+          </div>
+          <a href="${waUrl}" target="_blank" class="w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2 shadow-sm">
+            <span>💬</span> Pesan Kamar Ini via WA
+          </a>
         </div>
-        <button onclick="openBookingModal('${room.type}', '${data.name}')" class="w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-sm transition">
-          Pesan Kamar Ini
-        </button>
-      </div>
-    `).join('');
+      `;
+    }).join('');
 
     // Gabungkan Card Foto + Card Kamar
     container.innerHTML = buildingCardHTML + roomsHTML;
